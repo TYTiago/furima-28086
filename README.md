@@ -30,27 +30,26 @@ Things you may want to cover:
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
-| email    | string | null: false,|
-
+| email    | string | null: false |
+| name     | string | null: false |
+| password | string | null: false |
 ### Association
 
 - has_many :goods
 - has_many :Purchase record
 
+| Column         | Type    | Options                        |
+| ------         | ------  | -----------                    |
+| title          | string  | null: false                    |
+| saler_id       | integer | null: false, foreign_key: true |
+| goods-id       | integer | null: false, unique: true      |
+| price          | integer | null: false                    |
+| date_id        | integer | null: false                    |
+| description    | text    | null: false                    |
+| category_id    | integer | null: false                    |
+| area_id        | integer | null: false                    |
+| Delivery_id    | integer | null: false                    |
 
-## goods テーブル
-
-| Column      | Type    | Options                        |
-| ------      | ------  | -----------                    |
-| title       | string  | null: false                    |
-| saler_id    | integer | null: false, foreign_key: true |
-| goods-id    | integer | null: false, unique: true      |
-| price       | integer | null: false                    |
-| description | text    | null: false                    |
-| image_url   | text    | null: false                    |
-| date        | text    | null: false                    |
-| maker       | text    | null: false                    |
-| category    | text    | null: false                    |
 ### Association
 
   belongs_to :users
@@ -60,22 +59,23 @@ Things you may want to cover:
 | Column        | Type    | Options                         |
 | ------        | ------  | -----------                     |
 | buyer_id      | integer | null: false, foreign_key: true  |
-| price         | integer | null: false, foreign_key: true  |
-| title         | string  | null: false, foreign_key: true  |
+| goods-id      | integer | null: false                     |
 ### Association
 
   belongs_to :users
   belongs_to :Street address
   has_many :goods
 
-  ##  Street address テーブル
+##  Street address テーブル
 
 | Column          | Type    | Options     |
 | ------          | ------  | ----------- |
 | postal          | integer | null: false、foreign_key: true|
 | prefectures     | string  | null: false、foreign_key: true|
-| Municipality_1  | string  | null: false、foreign_key: true|
-| Municipality_2  | string  | null: false、foreign_key: true|
+| Municipality    | string  | null: false、foreign_key: true|
+| address         | string  | foreign_key: true             |
+| Building        | string  | null: false、foreign_key: true|
+| phone_number    | string  | null: false、foreign_key: true|
 
 ### Association
 belongs_to :Purchase record
