@@ -55,4 +55,15 @@ Things you may want to cover:
 
   belongs_to :users
   belongs_to :Purchase record
+##  Purchase record テーブル
 
+| Column        | Type    | Options                         |
+| ------        | ------  | -----------                     |
+| buyer_id      | integer | null: false, foreign_key: true  |
+| price         | integer | null: false, foreign_key: true  |
+| title         | string  | null: false, foreign_key: true  |
+### Association
+
+  belongs_to :users
+  belongs_to :Street address
+  has_many :goods
