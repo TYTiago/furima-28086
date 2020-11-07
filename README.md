@@ -22,3 +22,20 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# テーブル設計
+
+## users テーブル
+
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| email    | string | null: false,|
+
+### Association
+
+- has_many :goods
+- has_many :Purchase record
+
+
+
