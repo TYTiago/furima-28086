@@ -67,3 +67,15 @@ Things you may want to cover:
   belongs_to :users
   belongs_to :Street address
   has_many :goods
+
+  ##  Street address テーブル
+
+| Column          | Type    | Options     |
+| ------          | ------  | ----------- |
+| postal          | integer | null: false、foreign_key: true|
+| prefectures     | string  | null: false、foreign_key: true|
+| Municipality_1  | string  | null: false、foreign_key: true|
+| Municipality_2  | string  | null: false、foreign_key: true|
+
+### Association
+belongs_to :Purchase record
