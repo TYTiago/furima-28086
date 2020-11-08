@@ -32,25 +32,23 @@ Things you may want to cover:
 | --------        | ------ | ----------- |
 | email           | string | null: false |
 | nickname        | string | null: false |
-| password        | string | null: false |
+| encrypted_password | string | null: false |
 | first_name      | string | null: false |
 | last_name       | string | null: false |
 | first_name_kana | string | null: false |
 | last_name_kana  | string | null: false |
-| birthday_y      | string | null: false |
-| birthday_m      | string | null: false |
-| birthday_d      | string | null: false |
+| birth_date      | date   | null: false |
+
 ### Association
 
 - has_many :goods
-- has_many :Purchase record
+- has_many :Purchase records
 
 ## goods テーブル
 | Column         | Type    | Options                        |
 | ------         | ------  | -----------                    |
 | title          | string  | null: false                    |
-| saler_id       | integer | null: false, foreign_key: true |
-| goods-id       | integer | null: false, unique: true      |
+| user_id        | integer | null: false, foreign_key: true |
 | price          | integer | null: false                    |
 | date_id        | integer | null: false                    |
 | description    | text    | null: false                    |
@@ -66,19 +64,19 @@ Things you may want to cover:
 
 | Column        | Type    | Options                         |
 | ------        | ------  | -----------                     |
-| buyer_id      | integer | null: false, foreign_key: true  |
-| goods-id      | integer | null: false                     |
+| user_id       | integer | null: false, foreign_key: true  |
+| goods-id      | integer | null: false, foreign_key: true  |
 ### Association
 
   belongs_to :user
-  has_many :Street address
+  has_many :Street addresses
   belongs_to :goods
 
 ##  Street address テーブル
 
 | Column          | Type    | Options     |
 | ------          | ------  | ----------- |
-| postal          | strong  | null: false |
+| postal          | string  | null: false |
 | prefectures     | integer | null: false |
 | Municipality    | string  | null: false |
 | address         | string  | null: false |
