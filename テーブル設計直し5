@@ -1,0 +1,5 @@
+| goods-id      | integer | null: false, foreign_key: true  |	| goods_id      | integer | null: false, foreign_key: true  |
+### Association	### Association
+
+
+  belongs_to :user	  belongs_to :user
