@@ -28,16 +28,24 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| email    | string | null: false |
-| name     | string | null: false |
-| password | string | null: false |
+| Column          | Type   | Options     |
+| --------        | ------ | ----------- |
+| email           | string | null: false |
+| nickname        | string | null: false |
+| password        | string | null: false |
+| first_name      | string | null: false |
+| last_name       | string | null: false |
+| first_name_kana | string | null: false |
+| last_name_kana  | string | null: false |
+| birthday_y      | string | null: false |
+| birthday_m      | string | null: false |
+| birthday_d      | string | null: false |
 ### Association
 
 - has_many :goods
 - has_many :Purchase record
 
+## goods テーブル
 | Column         | Type    | Options                        |
 | ------         | ------  | -----------                    |
 | title          | string  | null: false                    |
@@ -52,7 +60,7 @@ Things you may want to cover:
 
 ### Association
 
-  belongs_to :users
+  belongs_to :user
   belongs_to :Purchase record
 ##  Purchase record テーブル
 
@@ -62,20 +70,20 @@ Things you may want to cover:
 | goods-id      | integer | null: false                     |
 ### Association
 
-  belongs_to :users
-  belongs_to :Street address
-  has_many :goods
+  belongs_to :user
+  has_many :Street address
+  belongs_to :goods
 
 ##  Street address テーブル
 
 | Column          | Type    | Options     |
 | ------          | ------  | ----------- |
-| postal          | integer | null: false、foreign_key: true|
-| prefectures     | string  | null: false、foreign_key: true|
-| Municipality    | string  | null: false、foreign_key: true|
-| address         | string  | foreign_key: true             |
-| Building        | string  | null: false、foreign_key: true|
-| phone_number    | string  | null: false、foreign_key: true|
+| postal          | strong  | null: false |
+| prefectures     | integer | null: false |
+| Municipality    | string  | null: false |
+| address         | string  | null: false |
+| Building        | string  |             |
+| phone_number    | string  | null: false |
 
 ### Association
 belongs_to :Purchase record
