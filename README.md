@@ -75,14 +75,15 @@ Things you may want to cover:
 
 ##  street_addresses テーブル
 
-| Column          | Type    | Options     |
-| ------          | ------  | ----------- |
-| postal          | string  | null: false, foreign_key: true|
-| prefecture_id   | integer | null: false, foreign_key: true|
-| municipality    | string  | null: false, foreign_key: true|
-| address         | string  | null: false, foreign_key: true|
-| building        | string  | foreign_key: true             |
-| phone_number    | string  | null: false, foreign_key: true|
+| Column             | Type    | Options                        |
+| ------             | ------  | -----------                    |
+| postal             | string  | null: false                    |
+| prefecture_id      | integer | null: false                    |
+| municipality       | string  | null: false                    |
+| address            | string  | null: false                    |
+| building           | string  |                                |
+| phone_number       | string  | null: false                    |
+| purchase_record_id | integer | null: false, foreign_key: true |
 
 ### association
 belongs_to :purchase_record
