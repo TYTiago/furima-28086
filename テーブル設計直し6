@@ -1,0 +1,78 @@
+@ -28,21 +28,21 @@ Things you may want to cover:
+
+## users テーブル
+
+| Column          | Type   | Options     |
+| --------        | ------ | ----------- |
+| email           | string | null: false |
+| nickname        | string | null: false |
+| encrypted_password | string | null: false |
+| first_name      | string | null: false |
+| last_name       | string | null: false |
+| first_name_kana | string | null: false |
+| last_name_kana  | string | null: false |
+| birth_date      | date   | null: false |
+| Column                | Type   | Options        |
+| --------              | ------ | -----------    |
+| email                 | string | null: false    |
+| nickname              | string | null: false    |
+| encrypted_password    | string | null: false    |
+| first_name            | string | null: false    |
+| last_name             | string | null: false    |
+| first_name_kana       | string | null: false    |
+| last_name_kana        | string | null: false    |
+| birth_date            | date   | null: false    |
+
+### Association
+
+- has_many :goods
+- has_many :Purchase records
+- has_many :Purchase_records
+
+## goods テーブル
+| Column         | Type    | Options                        |
+@ -54,13 +54,14 @@ Things you may want to cover:
+| description    | text    | null: false                    |
+| category_id    | integer | null: false                    |
+| area_id        | integer | null: false                    |
+| Delivery_id    | integer | null: false                    |
+| delivery_id    | integer | null: false                    |
+| image          | string  | null: false                    |
+
+### Association
+
+  belongs_to :user
+  belongs_to :Purchase record
+##  Purchase record テーブル
+  belongs_to :Purchase_record
+##  purchase_record テーブル
+
+| Column        | Type    | Options                         |
+| ------        | ------  | -----------                     |
+@ -69,19 +70,19 @@ Things you may want to cover:
+### Association
+
+  belongs_to :user
+  has_many :Street addresses
+  belongs_to :goods
+  has_one :Street_address
+  has_one :good
+
+##  Street address テーブル
+##  street_address テーブル
+
+| Column          | Type    | Options     |
+| ------          | ------  | ----------- |
+| postal          | string  | null: false |
+| prefectures     | integer | null: false |
+| Municipality    | string  | null: false |
+| municipality    | string  | null: false |
+| address         | string  | null: false |
+| Building        | string  |             |
+| building        | string  |             |
+| phone_number    | string  | null: false |
+
+### Association
+belongs_to :Purchase record
+### association
+belongs_to :Purchase_record
