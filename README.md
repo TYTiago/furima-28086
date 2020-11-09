@@ -55,11 +55,12 @@ Things you may want to cover:
 | category_id    | integer | null: false                    |
 | area_id        | integer | null: false                    |
 | delivery_id    | integer | null: false                    |
+| status_id      | integer | null: false                    |
 
 ### Association
 
   belongs_to :user
-  belongs_to :purchase_record
+  has_one :purchase_record
 ##  purchase_record テーブル
 
 | Column        | Type    | Options                         |
@@ -77,7 +78,7 @@ Things you may want to cover:
 | Column          | Type    | Options     |
 | ------          | ------  | ----------- |
 | postal          | string  | null: false |
-| prefectures_id  | integer | null: false |
+| prefecture_id  | integer | null: false |
 | municipality    | string  | null: false |
 | address         | string  | null: false |
 | building        | string  |             |
