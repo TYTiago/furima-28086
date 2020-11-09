@@ -42,7 +42,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :goods
-- has_many :Purchase_records
+- has_many :purchase_records
 
 ## goods テーブル
 | Column         | Type    | Options                        |
@@ -55,34 +55,33 @@ Things you may want to cover:
 | category_id    | integer | null: false                    |
 | area_id        | integer | null: false                    |
 | delivery_id    | integer | null: false                    |
-| image          | string  | null: false                    |
 
 ### Association
 
   belongs_to :user
-  belongs_to :Purchase_record
+  belongs_to :purchase_record
 ##  purchase_record テーブル
 
 | Column        | Type    | Options                         |
 | ------        | ------  | -----------                     |
 | user_id       | integer | null: false, foreign_key: true  |
-| goods_id      | integer | null: false, foreign_key: true  |
+| good_id      | integer | null: false, foreign_key: true  |
 ### Association
 
   belongs_to :user
-  has_one :Street_address
-  has_one :good
+  has_one :street_address
+  belongs_to :good
 
 ##  street_address テーブル
 
 | Column          | Type    | Options     |
 | ------          | ------  | ----------- |
 | postal          | string  | null: false |
-| prefectures     | integer | null: false |
+| prefectures_id  | integer | null: false |
 | municipality    | string  | null: false |
 | address         | string  | null: false |
 | building        | string  |             |
 | phone_number    | string  | null: false |
 
 ### association
-belongs_to :Purchase_record
+belongs_to :purchase_record
