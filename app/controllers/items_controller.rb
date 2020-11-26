@@ -1,7 +1,6 @@
 
 class ItemsController < ApplicationController
-end
-=begin
+
 rescue => exception
   
 end
@@ -16,7 +15,8 @@ end
   def show
   end
 
-    @item = OO.new
+ def create
+    @item = Item.new
    if @item.save
     redirect_to @item
     else
@@ -32,6 +32,5 @@ end
     
   end
   private
- 
-=end
+end
 
