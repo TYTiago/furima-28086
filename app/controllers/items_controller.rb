@@ -1,18 +1,26 @@
+
 class ItemsController < ApplicationController
- 
+end
+=begin
+rescue => exception
+  
+end
   def index
     @items = Item.all
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def show
   end
 
-  def create
-    Iweet.create(item_params)
+    @item = OO.new
+   if @item.save
+    redirect_to @item
+    else
+    render :new
   end
 
   def update
@@ -25,4 +33,5 @@ class ItemsController < ApplicationController
   end
   private
  
-end
+=end
+
