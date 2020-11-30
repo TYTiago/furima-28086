@@ -1,12 +1,7 @@
-
 class ItemsController < ApplicationController
-end
-=begin
-rescue => exception
-  
-end
+  before_action :authenticate_user!
   def index
-    @items = Item.all
+    # @items = Item.all
   end
 
   def new
@@ -16,22 +11,30 @@ end
   def show
   end
 
-    @item = OO.new
+ def create
+   @item = Item.new(item_params)
    if @item.save
-    redirect_to @item
+      redirect_to root_path
     else
-    render :new
+      render :new
   end
+end
 
-  def update
-    item = Iweet.find(params[:id])
-    item.update(item_params)
-  end
+  # def update
+  #   if current_user.update(user_params)
+  #     redirect_to root_path
+  #   else
+  #     render :new
+  #   end
+  # end
   
   def destroy
     
   end
-  private
- 
-=end
 
+  private
+
+  def item_params
+    params.require(:item).permit(:title, :price, :description, :category_id, :date_delivery_id, :area_id, :status_id, :delivery_id, :image ).merge(user_id: current_user.id)
+  end
+end
