@@ -62,37 +62,37 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
     it "date_delivery_id が0だと登録できない" do
-      @item.date_delivery_id = "0"
+      @item.date_delivery_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include "Date delivery must be greater than or equal to 1"
     end
     it "category_idが0だと登録できない" do
-      @item.category_id = "0"
+      @item.category_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include "Category must be greater than or equal to 1"
     end
     it "area_idが0では登録できない" do
-      @item.area_id = "0"
+      @item.area_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include "Area must be greater than or equal to 1"
     end
     it "delivery_idが0だと登録できない" do
-      @item.delivery_id = "0"
+      @item.delivery_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include "Delivery must be greater than or equal to 1"
     end
     it "status_idが0では登録できない" do
-      @item.status_id = "0"
+      @item.status_id = 0
       @item.valid?
       expect(@item.errors.full_messages).to include "Status must be greater than or equal to 1"
     end
     it 'priceは299円以下では保存できない' do
-      @item.price = 0>299
+      @item.price = 299
       @item.valid?
       expect(@item.errors.full_messages).to include ("Price must be greater than 300")
     end
     it 'priceは10000000円以上では保存できない' do
-      @item.price = 0<10000000
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include ("Price is not a number")
     end
