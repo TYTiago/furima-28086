@@ -1,7 +1,14 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
-  
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :date_delivery
+  belongs_to_active_hash :category
+  belongs_to_active_hash :area
+  belongs_to_active_hash :delivery
+  belongs_to_active_hash :status
+
   with_options presence: true do
     validates :title
     validates :user_id 
@@ -26,4 +33,6 @@ class Item < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
+  
+  # active_hashのアソシエーションの記述を追記
 end

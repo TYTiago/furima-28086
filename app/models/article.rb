@@ -1,10 +1,5 @@
 class Article <  ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :date_delivery 
-  belongs_to :category 
-  belongs_to :area 
-  belongs_to :delivery 
-  belongs_to :status 
+  
   
   
   with_options presence: true do
