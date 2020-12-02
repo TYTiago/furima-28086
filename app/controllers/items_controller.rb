@@ -22,14 +22,18 @@ def show
   @item = Item.find(params[:id])
 end
 
-  # def update
-  #   if current_user.update(user_params)
-  #     redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
+def edit
+  @item = Item.find(params[:id])
+end
 
+def update
+  if item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to item_path
+  else
+    render :edit
+end
+end
   def destroy
     
   end
