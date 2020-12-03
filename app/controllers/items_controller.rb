@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, {only: [:new, :edit]}
+  before_action :authenticate_user!, {only: [:new, :edit, :destroy]}
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
 
@@ -39,10 +39,14 @@ if @item.update(item_params)
 end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.user_id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else
+      render :edit
+    end 
   end
-
+  
   private
 
   def item_params
