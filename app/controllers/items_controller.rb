@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, {only: [:new]}
+  before_action :authenticate_user!, {only: [:new, :edit]}
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
   end
+
   def new
     @item = Item.new
   end
-
 
  def create
    @item = Item.new(item_params)
@@ -24,16 +24,21 @@ end
 
 def edit
   @item = Item.find(params[:id])
+  if @item.user_id != current_user.id
+    flash[:notice] = "権限がありません"
+    redirect_to root_path
+  end
 end
 
 def update
-  if item = Item.find(params[:id])
-    item.update(item_params)
+   @item = Item.find(params[:id])
+if @item.update(item_params)
     redirect_to item_path
   else
     render :edit
+  end
 end
-end
+
   def destroy
     
   end
