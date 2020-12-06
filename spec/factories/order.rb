@@ -1,10 +1,9 @@
 FactoryBot.define do
   factory :order do
-    # association :user
-    # association :item
     postal                 {'000-0000'}
     municipality           {"ああああ"}
     address                {"ああああ"}
+    building               {"ああああ"}
     phone_number           {12345678912}
     prefecture_id          {2}
     purchase_record_id     {1}
