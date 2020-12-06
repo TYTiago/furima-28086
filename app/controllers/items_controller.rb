@@ -21,10 +21,14 @@ class ItemsController < ApplicationController
 end
 
 def show
+
 end
 
 def edit
   if @item.user_id != current_user.id
+    flash[:notice] = "権限がありません"
+    redirect_to root_path
+  elsif @item.purchase_record.present?
     flash[:notice] = "権限がありません"
     redirect_to root_path
   end
@@ -50,7 +54,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:title, :price, :description, :category_id, :date_delivery_id, :area_id, :status_id, :delivery_id, :image ).merge(user_id: current_user.id)
+    params.require(:item).permit(:title, :price, :description, :category_id, :date_delivery_id, :area_id, :status_id, :delivery_id, :image, :item_id, :user_id ).merge(user_id: current_user.id)
   end
 
   def set_item
