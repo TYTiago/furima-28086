@@ -37,12 +37,12 @@ RSpec.describe Order, type: :model do
       expect(@order.errors.full_messages).to include "Phone number can't be blank"
     end
     it "phone_numberが11桁以上だと登録できない" do
-      @order.phone_number = 000000000000
+      @order.phone_number = "000000000000"
       @order.valid?
       expect(@order.errors.full_messages).to include "Phone number is invalid"
     end
     it "phone_numberが11桁以下だと登録できない" do
-      @order.phone_number = 0000000000
+      @order.phone_number = "0000000000"
       @order.valid?
       expect(@order.errors.full_messages).to include "Phone number is invalid"
     end
@@ -52,7 +52,7 @@ RSpec.describe Order, type: :model do
       expect(@order.errors.full_messages).to include "Postal can't be blank"
     end
     it "postalにハイフンを含まないと登録できない" do
-      @order.postal = 0000000
+      @order.postal = "0000000"
       @order.valid?
       expect(@order.errors.full_messages).to include "Postal is invalid"
     end
@@ -60,11 +60,6 @@ RSpec.describe Order, type: :model do
       @order.token = nil
       @order.valid?
       expect(@order.errors.full_messages).to include("Token can't be blank")
-    end
-    it "postalにハイフンを含まないと登録できない" do
-      @order.postal = 0000000
-      @order.valid?
-      expect(@order.errors.full_messages).to include "Postal is invalid"
     end
     it "建物名は空でも登録できる" do
       @order.building = ""
