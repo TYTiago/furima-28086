@@ -87,3 +87,4 @@ Things you may want to cover:
 
 ### association
 belongs_to :purchase_record
+
